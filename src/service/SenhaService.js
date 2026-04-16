@@ -42,6 +42,18 @@ class SenhaService {
     }
 
     //Pelo menos um número.
+    requisitoNumero = false;
+    for (let i = 0; i < senha.senha.length; i++) {
+        const element = senha.senha[i];
+        if (constantes.NUMEROS.includes(element)) {
+            requisitoNumero = true;
+            break;
+        }
+    }
+    if (!requisitoNumero) {
+        return false;
+    }
+
     //Pelo menos um caractere especial (ex: !@#$%^&*).
     //Não pode conter espaços em branco.
 
