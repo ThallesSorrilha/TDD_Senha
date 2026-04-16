@@ -4,7 +4,7 @@ const { SenhaService } = require("../../src/service/SenhaService");
 describe("Senha", () => {
   test("Teste de senha Válida", () => {
     // Arrange
-    const usuario = new Senha({
+    const senha = new Senha({
       senha: "Terenc1@",
     });
 
