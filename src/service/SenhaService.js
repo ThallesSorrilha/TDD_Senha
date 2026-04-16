@@ -9,6 +9,10 @@ class SenhaService {
     }
     
     //Mínimo de 8 caracteres.
+    if (senha.senha.length < 8) {
+        return false;
+    }
+    
     //Pelo menos uma letra maiúscula.
     //Pelo menos uma letra minúscula.
     //Pelo menos um número.
