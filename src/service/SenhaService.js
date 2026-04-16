@@ -29,6 +29,18 @@ class SenhaService {
     }
 
     //Pelo menos uma letra minúscula.
+    requisitoMinusculo = false;
+    for (let i = 0; i < senha.senha.length; i++) {
+        const element = senha.senha[i];
+        if (constantes.ALFABETO_MINUSCULO.includes(element)) {
+            requisitoMinusculo = true;
+            break;
+        }
+    }
+    if (!requisitoMinusculo) {
+        return false;
+    }
+
     //Pelo menos um número.
     //Pelo menos um caractere especial (ex: !@#$%^&*).
     //Não pode conter espaços em branco.
