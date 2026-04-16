@@ -1,0 +1,96 @@
+
+Mínimo de 8 caracteres.
+Pelo menos uma letra maiúscula.
+Pelo menos uma letra minúscula.
+Pelo menos um número.
+Pelo menos um caractere especial (ex: !@#$%^&*).
+Não pode conter espaços em branco.
+
+----------------
+
+🎓 O que é TDD (Test-Driven Development)?
+TDD é uma metodologia de desenvolvimento de software onde os testes automatizados são escritos antes do código funcional. A ideia central é seguir um ciclo curto de desenvolvimento, conhecido como Red-Green-Refactor:
+
+Red: Escreva um teste que falha (o código ainda não foi implementado).
+Green: Escreva o código mínimo necessário para fazer o teste passar.
+Refactor: Refatore o código para melhorar sua estrutura, mantendo os testes passando.
+Essa abordagem promove:
+
+Maior cobertura de testes;
+Código mais limpo e com melhor design;
+Feedback rápido sobre falhas;
+Confiança para modificar/refatorar o sistema.
+TDD é frequentemente utilizado em conjunto com metodologias ágeis, como o Scrum ou XP (Programação Extrema)​.
+
+💡 Exercício: Sistema de Validação de Senhas Seguras
+
+1 - Contexto:
+Você foi contratado por uma fintech brasileira para desenvolver um módulo de validação de senhas que será utilizado na criação de contas de usuário no aplicativo. O cliente quer garantir que todas as senhas cadastradas atendam a critérios rigorosos de segurança.
+
+2 - Requisitos Funcionais: O sistema deve validar senhas com as seguintes regras:
+
+Mínimo de 8 caracteres.
+Pelo menos uma letra maiúscula.
+Pelo menos uma letra minúscula.
+Pelo menos um número.
+Pelo menos um caractere especial (ex: !@#$%^&*).
+Não pode conter espaços em branco.
+3 - Descrição da atividade
+
+Considere o contexto acima ou o seu Trabalho de Conclusão de Curso e escreva os testes primeiro usando uma linguagem como Java, Python ou JavaScript.
+Após escrever os testes e vê-los falhar (estado Red), implemente o código para passar nos testes (estado Green).
+Refatore o código mantendo os testes passando (Refactor).
+Documente as decisões tomadas e os desafios encontrados no Readme.md.
+Submeta o link do repositório git na atividade.
+4 - Orientações de desenvolvimento
+
+Durante a execução da atividade, você deverá:
+
+criar um repositório no GitHub para o projeto;
+escrever os testes automatizados antes da implementação;
+executar os testes para evidenciar o estado de falha inicial;
+implementar o código mínimo necessário para fazer os testes passarem;
+refatorar o código sempre que necessário, sem alterar o comportamento já validado;
+manter um histórico de commits que permita acompanhar a evolução do desenvolvimento;
+documentar no README.md as decisões tomadas, as dificuldades encontradas e uma breve reflexão sobre a aplicação do TDD;
+enviar o link do repositório como entrega da atividade.
+5 - Registro obrigatório do processo com commits
+
+Além da solução final, o estudante deverá registrar o processo de desenvolvimento por meio de commits no GitHub, de modo que o histórico do repositório permita identificar claramente a aplicação do ciclo red → green → refactor.
+
+Os commits devem ser:
+
+frequentes;
+incrementais;
+coerentes com a evolução da solução;
+descritos com mensagens claras e objetivas.
+O histórico precisa evidenciar que os testes foram escritos antes da implementação e que o código foi evoluído gradualmente a partir deles. Repositórios com poucos commits, commits muito grandes ou mensagens genéricas prejudicarão a avaliação da aplicação do TDD.
+
+Para facilitar a organização, recomenda-se utilizar prefixos como:
+
+test: para criação ou alteração de testes;
+feat: para implementação de funcionalidades;
+refactor: para melhorias internas no código sem alteração de comportamento.
+6 - Exemplo de commits esperados
+
+test: deve rejeitar senha com menos de 8 caracteres
+feat: implementa validação de tamanho mínimo
+refactor: melhora nome do método
+
+test: deve rejeitar senha sem letra maiúscula
+feat: adiciona validação de letra maiúscula
+refactor: organiza validações
+
+test: deve rejeitar senha sem número
+feat: adiciona validação de número
+refactor: remove duplicações
+
+7 - O que não será considerado adequado
+
+Não serão considerados adequados, para fins de evidência de TDD:
+
+repositórios com apenas um ou poucos commits;
+commits com mensagens genéricas, como atividade final, entrega, ajustes ou finalizado;
+implementação da solução antes da escrita dos testes;
+ausência de evidências do ciclo red → green → refactor;
+histórico inconsistente com o processo descrito no README.md.
