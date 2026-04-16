@@ -1,3 +1,5 @@
+const { Senha } = require("../../src/model/Senha");
+const { SenhaService } = require("../../src/service/SenhaService");
 
 describe("Senha", () => {
   test("Teste de senha Válida", () => {

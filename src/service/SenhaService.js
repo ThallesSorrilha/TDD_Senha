@@ -3,7 +3,8 @@ class SenhaService {
     if (!senha) {
       return false;
     }
-    return true;
+    // demais validações
+    return false;
   }
 }
 
