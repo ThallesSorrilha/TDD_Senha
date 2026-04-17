@@ -19,9 +19,7 @@ describe("Senha", () => {
     const senha = new Senha({
       senha: "terenc",
     });
-
     const saida = SenhaService.validarSenha(senha);
-
     expect(false).toBe(saida);
   });
 
@@ -29,9 +27,15 @@ describe("Senha", () => {
     const senha = new Senha({
       senha: "terenc1@",
     });
-
     const saida = SenhaService.validarSenha(senha);
+    expect(false).toBe(saida);
+  });
 
+  test("Senha Inválida: sem letra minúscula", () => {
+    const senha = new Senha({
+      senha: "TERENC1@",
+    });
+    const saida = SenhaService.validarSenha(senha);
     expect(false).toBe(saida);
   });
 });
