@@ -19,58 +19,46 @@ class SenhaService {
     }
 
     //Pelo menos uma letra maiúscula.
-    requisitoMaiusculo = false;
-    for (let i = 0; i < senha.senha.length; i++) {
-      const element = senha.senha[i];
-      if (constantes.ALFABETO_MAIUSCULO.includes(element)) {
-        requisitoMaiusculo = true;
-        break;
-      }
-    }
-    if (!requisitoMaiusculo) {
-      console.log("senha sem letra maiúscula");
+    if (
+      !SenhaService.validarPresencaDeCaracter(
+        senha,
+        constantes.ALFABETO_MAIUSCULO,
+        "senha sem letra maiúsculo",
+      )
+    ) {
       return false;
     }
 
     //Pelo menos uma letra minúscula.
-    requisitoMinusculo = false;
-    for (let i = 0; i < senha.senha.length; i++) {
-      const element = senha.senha[i];
-      if (constantes.ALFABETO_MINUSCULO.includes(element)) {
-        requisitoMinusculo = true;
-        break;
-      }
-    }
-    if (!requisitoMinusculo) {
-      console.log("senha sem letra minúscula");
+    if (
+      !SenhaService.validarPresencaDeCaracter(
+        senha,
+        constantes.ALFABETO_MINUSCULO,
+        "senha sem letra minúscula",
+      )
+    ) {
       return false;
     }
 
     //Pelo menos um número.
-    requisitoNumero = false;
-    for (let i = 0; i < senha.senha.length; i++) {
-      const element = senha.senha[i];
-      if (constantes.NUMEROS.includes(element)) {
-        requisitoNumero = true;
-        break;
-      }
-    }
-    if (!requisitoNumero) {
-      console.log("senha sem número");
+    if (
+      !SenhaService.validarPresencaDeCaracter(
+        senha,
+        constantes.NUMEROS,
+        "senha sem numeros",
+      )
+    ) {
       return false;
     }
 
     //Pelo menos um caractere especial (ex: !@#$%^&*).
-    requisitoEspecial = false;
-    for (let i = 0; i < senha.senha.length; i++) {
-      const element = senha.senha[i];
-      if (constantes.ESPECIAIS.includes(element)) {
-        requisitoEspecial = true;
-        break;
-      }
-    }
-    if (!requisitoEspecial) {
-      console.log("senha sem caractere especial");
+    if (
+      !SenhaService.validarPresencaDeCaracter(
+        senha,
+        constantes.ESPECIAIS,
+        "senha sem caractere especial",
+      )
+    ) {
       return false;
     }
 
@@ -83,6 +71,22 @@ class SenhaService {
       }
     }
 
+    return true;
+  }
+
+  static validarPresencaDeCaracter(senha, conjunto, mensagem) {
+    requisito = false;
+    for (let i = 0; i < senha.senha.length; i++) {
+      const element = senha.senha[i];
+      if (conjunto.includes(element)) {
+        requisito = true;
+        break;
+      }
+    }
+    if (!requisito) {
+      console.log(mensagem);
+      return false;
+    }
     return true;
   }
 }
