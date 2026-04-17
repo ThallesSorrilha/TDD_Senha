@@ -68,8 +68,14 @@ class SenhaService {
     }
 
     //Não pode conter espaços em branco.
+    for (let i = 0; i < senha.senha.length; i++) {
+        const element = senha.senha[i];
+        if (element == " ") {
+            return false;
+        }
+    }
 
-    return false;
+    return true;
   }
 }
 
