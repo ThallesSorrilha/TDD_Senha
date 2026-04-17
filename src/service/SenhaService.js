@@ -55,6 +55,18 @@ class SenhaService {
     }
 
     //Pelo menos um caractere especial (ex: !@#$%^&*).
+    requisitoEspecial = false;
+    for (let i = 0; i < senha.senha.length; i++) {
+        const element = senha.senha[i];
+        if (constantes.ESPECIAIS.includes(element)) {
+            requisitoEspecial = true;
+            break;
+        }
+    }
+    if (!requisitoEspecial) {
+        return false;
+    }
+
     //Não pode conter espaços em branco.
 
     return false;
