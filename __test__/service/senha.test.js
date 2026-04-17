@@ -15,6 +15,16 @@ describe("Senha", () => {
     expect(true).toBe(saida);
   });
 
+  test("Senha Inválida: menos de 8 caracteres", () => {
+    const senha = new Senha({
+      senha: "terenc",
+    });
+
+    const saida = SenhaService.validarSenha(senha);
+
+    expect(false).toBe(saida);
+  });
+
   test("Senha Inválida: sem letra maiúscula", () => {
     const senha = new Senha({
       senha: "terenc1@",
