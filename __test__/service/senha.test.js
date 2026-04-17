@@ -39,9 +39,17 @@ describe("Senha", () => {
     expect(false).toBe(saida);
   });
 
-    test("Senha Inválida: sem números", () => {
+  test("Senha Inválida: sem números", () => {
     const senha = new Senha({
       senha: "Terenci@",
+    });
+    const saida = SenhaService.validarSenha(senha);
+    expect(false).toBe(saida);
+  });
+
+  test("Senha Inválida: sem caracteres especiais", () => {
+    const senha = new Senha({
+      senha: "Terenc1o",
     });
     const saida = SenhaService.validarSenha(senha);
     expect(false).toBe(saida);
