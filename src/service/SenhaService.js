@@ -1,14 +1,15 @@
 const { constantes } = require("../utils/constantes");
+const { mensagens } = require("../utils/mensagens");
 
 class SenhaService {
   static validarSenha(senha) {
     if (!senha) {
-      console.log("objeto nulo");
+      console.log(mensagens.OBJETO_NULO);
       return false;
     }
 
     if (!senha.senha) {
-      console.log("atributo nulo");
+      console.log(mensagens.ATRIBUTO_NULO);
       return false;
     }
 
@@ -40,30 +41,30 @@ class SenhaService {
 
   static validarMaiusculas(senha) {
     conjunto = constantes.ALFABETO_MAIUSCULO;
-    mensagem = "senha sem letra maiúsculo";
+    mensagem = mensagens.SENHA_MAIUSCULO;
     return SenhaService.validarPresencaDeCaracter(senha, conjunto, mensagem);
   }
 
   static validarMinusculas(senha) {
     conjunto = constantes.ALFABETO_MINUSCULO;
-    mensagem = "senha sem letra minúscula";
+    mensagem = mensagens.SENHA_MINUSCULO;
     return SenhaService.validarPresencaDeCaracter(senha, conjunto, mensagem);
   }
 
   static validarNumeros(senha) {
     conjunto = constantes.NUMEROS;
-    mensagem = "senha sem números";
+    mensagem = mensagens.SENHA_NUMEROS;
     return SenhaService.validarPresencaDeCaracter(senha, conjunto, mensagem);
   }
 
   static validarCaracteresEspeciais(senha) {
     conjunto = constantes.ESPECIAIS;
-    mensagem = "senha sem caracteres especiais";
+    mensagem = mensagens.SENHA_CARACTERE_ESPECIAL;
     return SenhaService.validarPresencaDeCaracter(senha, conjunto, mensagem);
   }
 
   static validarMinimoCaracteres(senha) {
-    mensagem = "senha não pode ter menos de 8 caracteres"
+    mensagem = mensagens.SENHA_MIN_CARACTERES;
     if (senha.senha.length < 8) {
       console.log(mensagem);
       return false;
@@ -72,7 +73,7 @@ class SenhaService {
   }
 
   static validarEspacoBranco(senha) {
-    mensagem = "senha não pode conter espaço";
+    mensagem = mensagens.SENHA_ESPACO_BRANCO;
     for (let i = 0; i < senha.senha.length; i++) {
       const element = senha.senha[i];
       if (element == " ") {
