@@ -12,64 +12,12 @@ class SenhaService {
       return false;
     }
 
-    //Mínimo de 8 caracteres.
-    if (senha.senha.length < 8) {
-      console.log("senha não pode ter menos de 8 caracteres");
-      return false;
-    }
-
-    //Pelo menos uma letra maiúscula.
-    if (
-      !SenhaService.validarPresencaDeCaracter(
-        senha,
-        constantes.ALFABETO_MAIUSCULO,
-        "senha sem letra maiúsculo",
-      )
-    ) {
-      return false;
-    }
-
-    //Pelo menos uma letra minúscula.
-    if (
-      !SenhaService.validarPresencaDeCaracter(
-        senha,
-        constantes.ALFABETO_MINUSCULO,
-        "senha sem letra minúscula",
-      )
-    ) {
-      return false;
-    }
-
-    //Pelo menos um número.
-    if (
-      !SenhaService.validarPresencaDeCaracter(
-        senha,
-        constantes.NUMEROS,
-        "senha sem numeros",
-      )
-    ) {
-      return false;
-    }
-
-    //Pelo menos um caractere especial (ex: !@#$%^&*).
-    if (
-      !SenhaService.validarPresencaDeCaracter(
-        senha,
-        constantes.ESPECIAIS,
-        "senha sem caractere especial",
-      )
-    ) {
-      return false;
-    }
-
-    //Não pode conter espaços em branco.
-    for (let i = 0; i < senha.senha.length; i++) {
-      const element = senha.senha[i];
-      if (element == " ") {
-        console.log("senha não pode conter espaço");
-        return false;
-      }
-    }
+    if (!SenhaService.validarMinimoCaracteres(senha)) return false;
+    if (!SenhaService.validarMaiusculas(senha)) return false;
+    if (!SenhaService.validarMinusculas(senha)) return false;
+    if (!SenhaService.validarNumeros(senha)) return false;
+    if (!SenhaService.validarCaracteresEspeciais(senha)) return false;
+    if (!SenhaService.validarEspacoBranco(senha)) return false;
 
     return true;
   }
@@ -86,6 +34,51 @@ class SenhaService {
     if (!requisito) {
       console.log(mensagem);
       return false;
+    }
+    return true;
+  }
+
+  static validarMaiusculas(senha) {
+    conjunto = constantes.ALFABETO_MAIUSCULO;
+    mensagem = "senha sem letra maiúsculo";
+    return SenhaService.validarPresencaDeCaracter(senha, conjunto, mensagem);
+  }
+
+  static validarMinusculas(senha) {
+    conjunto = constantes.ALFABETO_MINUSCULO;
+    mensagem = "senha sem letra minúscula";
+    return SenhaService.validarPresencaDeCaracter(senha, conjunto, mensagem);
+  }
+
+  static validarNumeros(senha) {
+    conjunto = constantes.NUMEROS;
+    mensagem = "senha sem números";
+    return SenhaService.validarPresencaDeCaracter(senha, conjunto, mensagem);
+  }
+
+  static validarCaracteresEspeciais(senha) {
+    conjunto = constantes.ESPECIAIS;
+    mensagem = "senha sem caracteres especiais";
+    return SenhaService.validarPresencaDeCaracter(senha, conjunto, mensagem);
+  }
+
+  static validarMinimoCaracteres(senha) {
+    mensagem = "senha não pode ter menos de 8 caracteres"
+    if (senha.senha.length < 8) {
+      console.log(mensagem);
+      return false;
+    }
+    return true;
+  }
+
+  static validarEspacoBranco(senha) {
+    mensagem = "senha não pode conter espaço";
+    for (let i = 0; i < senha.senha.length; i++) {
+      const element = senha.senha[i];
+      if (element == " ") {
+        console.log(mensagem);
+        return false;
+      }
     }
     return true;
   }
