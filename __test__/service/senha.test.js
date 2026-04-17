@@ -16,15 +16,12 @@ describe("Senha", () => {
   });
 
   test("Senha Inválida: sem letra maiúscula", () => {
-    // Arrange
     const senha = new Senha({
       senha: "terenc1@",
     });
 
-    // Act
     const saida = SenhaService.validarSenha(senha);
 
-    // Assert
     expect(false).toBe(saida);
   });
 });
