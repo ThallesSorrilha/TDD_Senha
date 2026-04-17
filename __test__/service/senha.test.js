@@ -54,4 +54,12 @@ describe("Senha", () => {
     const saida = SenhaService.validarSenha(senha);
     expect(false).toBe(saida);
   });
+
+  test("Senha Inválida: com espaços", () => {
+    const senha = new Senha({
+      senha: "Tere nc1@",
+    });
+    const saida = SenhaService.validarSenha(senha);
+    expect(false).toBe(saida);
+  });
 });
